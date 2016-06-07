@@ -1,0 +1,21 @@
+{
+  "name": "fmi-www",
+  "homepage": "https://github.com/valkirilov/fmi-www",
+  "authors": [
+    "Valentin Kirilov <val.kirilov@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.4"
+  }
+}

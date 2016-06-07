@@ -1,0 +1,110 @@
+
+header {
+	padding: @base-padding-vertical @base-padding-horizontal;
+	margin-bottom: @base-margin-vertical;
+	position: relative;
+
+	.brand {
+		float: left;
+		width: 100%;
+		position: relative;
+	}
+
+	nav {
+		width: 100%;
+		float: right;
+		margin: 0;
+		padding: 0;
+
+		ul {
+			margin: 0;
+			padding: 0;
+			float: right;
+
+			li {
+				list-style: none;
+				float: left;
+				padding: 0 @base-padding-horizontal;
+			}
+		}
+	}
+}
+
+main {
+	margin-top: @base-margin-vertical;
+	margin-bottom: @base-margin-vertical;
+	background: green;
+	width: 60%;
+	padding: @base-padding-vertical @base-padding-horizontal;
+}
+
+.sidebar {
+	margin-top: @base-margin-vertical;
+	margin-bottom: @base-margin-vertical;
+	background: blue;
+	width: 40%;
+	padding: @base-padding-vertical @base-padding-horizontal;
+}
+
+footer {
+	margin-top: @base-margin-vertical;
+	background: yellow;
+	clear: both;
+}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : @viewport-screen-phone-xs) {
+
+	main {
+		width: 100%;
+	}
+
+	.sidebar {
+		width: 100%;
+	}
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : @viewport-screen-phone) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : @viewport-screen-tablet) {
+
+	header {
+		.brand {
+			width: 40%;
+		}
+
+		nav {
+			width: 60%;
+		}
+	}
+
+
+	main {
+		width: 60%;
+		float: left;
+		position: relative;
+	}
+
+	.sidebar {
+		width: 30%;
+		float: right;
+		position: relative;
+	}
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : @viewport-screen-laptop) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : @viewport-screen-desktop) {
+
+}

@@ -1,0 +1,54 @@
+
+.clearfix {
+	clear: both;
+}
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : @viewport-screen-phone-xs) {
+
+	.container {
+		width: @viewport-screen-phone-xs - (2 * @base-margin-horizontal);
+		margin-left: auto;
+		margin-right: auto;
+		clear: both;
+	}
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : @viewport-screen-phone) {
+
+	.container {
+		width: @viewport-screen-phone - (2 * @base-margin-horizontal);
+	}
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : @viewport-screen-tablet) {
+
+	.container {
+		width: @viewport-screen-tablet - (2 * @base-margin-horizontal);
+	}
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : @viewport-screen-laptop) {
+
+	.container {
+		width: @viewport-screen-laptop - (2 * @base-margin-horizontal);
+	}
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : @viewport-screen-desktop) {
+
+	.container {
+		width: @viewport-screen-desktop - (2 * @base-margin-horizontal);
+	}
+
+}
