@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
 .clearfix {
   clear: both;
 }
@@ -35,7 +36,13 @@
     width: 1170px;
   }
 }
+body {
+  background: #393e41;
+  margin: 0;
+  padding: 0;
+}
 header {
+  background: #3f88c5;
   padding: 15px 15px;
   margin-bottom: 15px;
   position: relative;
@@ -44,12 +51,17 @@ header .brand {
   float: left;
   width: 100%;
   position: relative;
+  font-size: 21px;
+  font-size: 2.1rem;
+  font-weight: 700;
+  padding: 0 15px;
 }
 header nav {
   width: 100%;
   float: right;
   margin: 0;
   padding: 0;
+  margin-top: 15px;
 }
 header nav ul {
   margin: 0;
@@ -59,26 +71,80 @@ header nav ul {
 header nav ul li {
   list-style: none;
   float: left;
-  padding: 0 15px;
+}
+header nav ul li a {
+  padding: 15px 15px;
+}
+header a {
+  color: #f6f7eb;
+  text-decoration: none;
+}
+header a:hover {
+  color: #ffffff;
 }
 main {
+  background: #393e41;
   margin-top: 15px;
   margin-bottom: 15px;
-  background: green;
   width: 60%;
+  padding: 0 15px;
+  color: #f6f7eb;
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+main .highlight {
+  font-weight: 700;
+  color: #e94f37;
+}
+main .info {
+  min-height: 300px;
+}
+main .info h1 {
+  font-size: 27px;
+  font-size: 2.7rem;
+  color: #e94f37;
+}
+main .info h1 span {
+  font-size: 18px;
+  font-size: 1.8rem;
+  color: #f6f7eb;
+}
+main .examples {
+  background: #3f88c5;
   padding: 15px 15px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  font-size: 10px;
+  font-size: 1rem;
+}
+main .examples a {
+  color: #393e41;
+  font-weight: 700;
+  text-decoration: none;
 }
 .sidebar {
   margin-top: 15px;
   margin-bottom: 15px;
-  background: blue;
   width: 40%;
-  padding: 15px 15px;
+  padding: 0 15px;
+}
+.sidebar .banner {
+  width: 100%;
+}
+.sidebar .banner img {
+  width: 100%;
 }
 footer {
   margin-top: 15px;
-  background: yellow;
+  background: #393e41;
   clear: both;
+  padding: 15px 15px;
+  color: #393e41;
+  text-align: center;
 }
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
@@ -111,3 +177,22 @@ footer {
 }
 /* Medium Devices, Desktops */
 /* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+  main {
+    width: 65%;
+    float: left;
+    position: relative;
+  }
+  .sidebar {
+    width: 30%;
+    float: right;
+    position: relative;
+  }
+}
+html,
+body {
+  font-family: 'Lato', sans-serif;
+}
+* {
+  box-sizing: border-box;
+}

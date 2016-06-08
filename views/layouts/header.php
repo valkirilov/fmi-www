@@ -19,6 +19,6 @@
 				</li>
 			</ul>
 		</nav>
-
+		<div class="clearfix"></div>
 	</div>
 </header>

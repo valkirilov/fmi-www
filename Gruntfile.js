@@ -45,7 +45,7 @@ module.exports = function(grunt) {
       all: {
         files: {
           'dist/libs.min.js': [
-            'bower_components/jquery/dist/jquery.min.js',
+            'bower_components/jquery/dist/jquery.js',
           ],
           'dist/scripts.min.js': [
             'scripts/app.js',

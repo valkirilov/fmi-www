@@ -1,5 +1,12 @@
 
+body {
+	background: @bg-body;
+	margin: 0;
+	padding: 0;
+}
+
 header {
+	background: @bg-header;
 	padding: @base-padding-vertical @base-padding-horizontal;
 	margin-bottom: @base-margin-vertical;
 	position: relative;
@@ -8,6 +15,9 @@ header {
 		float: left;
 		width: 100%;
 		position: relative;
+		.font-size(21);
+		font-weight: 700;
+		padding: 0 @base-padding-horizontal;
 	}
 
 	nav {
@@ -15,6 +25,7 @@ header {
 		float: right;
 		margin: 0;
 		padding: 0;
+		margin-top: @base-margin-vertical;
 
 		ul {
 			margin: 0;
@@ -24,32 +35,90 @@ header {
 			li {
 				list-style: none;
 				float: left;
-				padding: 0 @base-padding-horizontal;
+
+				a {
+					padding: @base-padding-vertical @base-padding-horizontal;
+				}
 			}
+		}
+	}
+
+	a {
+		color: @color-header-link;
+		text-decoration: none;
+
+		&:hover {
+			color: @color-header-link-hover;
 		}
 	}
 }
 
 main {
+	background: @bg-content;
 	margin-top: @base-margin-vertical;
 	margin-bottom: @base-margin-vertical;
-	background: green;
 	width: 60%;
-	padding: @base-padding-vertical @base-padding-horizontal;
+	padding: 0 @base-padding-horizontal;
+	color: @color-content;
+
+	.font-size(12);
+
+	.highlight {
+		font-weight: 700;
+		color: @color2;
+	}
+
+	.info {
+		min-height: 300px;
+
+		h1 {
+			.font-size(27);
+			color: @color2;
+
+			span {
+				.font-size(18);
+				color: @color1;
+			}
+		}
+	}
+
+	.examples {
+		background: @color4;
+		padding: @base-padding-vertical @base-padding-horizontal;
+		.border-radius(10px);
+		.font-size(10);
+
+		a {
+			color: @color3;
+			font-weight: 700;
+			text-decoration: none;
+		}
+	}
 }
 
 .sidebar {
 	margin-top: @base-margin-vertical;
 	margin-bottom: @base-margin-vertical;
-	background: blue;
 	width: 40%;
-	padding: @base-padding-vertical @base-padding-horizontal;
+	padding: 0 @base-padding-horizontal;
+
+	.banner {
+		width: 100%;
+
+		img {
+			width: 100%;
+		}
+	}
 }
 
 footer {
 	margin-top: @base-margin-vertical;
-	background: yellow;
+	background: @bg-footer;
 	clear: both;
+	padding: @base-padding-vertical @base-padding-horizontal;
+
+	color: @color-footer-text;
+	text-align: center;
 }
 
 
@@ -106,5 +175,17 @@ footer {
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : @viewport-screen-desktop) {
+
+	main {
+		width: 65%;
+		float: left;
+		position: relative;
+	}
+
+	.sidebar {
+		width: 30%;
+		float: right;
+		position: relative;
+	}
 
 }
