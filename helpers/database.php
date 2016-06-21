@@ -26,15 +26,16 @@ class Database {
 		}
 	}
 
-	public function query($sql, $class = null) {
-		$result = $this->pdo->query($sql);
+	public function query($sql, $params = array(), $class = null) {
+		$query = $this->pdo->prepare($sql);
 
   	# Map results to object
   	if ($class) {
-  		$result->setFetchMode(PDO::FETCH_CLASS, $class);
+  		$query->setFetchMode(PDO::FETCH_CLASS, $class);
   	}
 
-  	return $result;
+  	$query->execute($params);
+  	return $query;
 	}
 
 }

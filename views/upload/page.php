@@ -3,7 +3,7 @@
 require_once(PATH_ROOT . '/controllers/UploadController.php');
 
 $uploadController = new UploadController();
-if (isset($_POST['image'])) {
+if (isset($_POST['submit'])) {
 	$uploadController->uploadAction();
 }
 else {

@@ -18,8 +18,13 @@ class Auth {
 		$password = md5($password);
 
 		global $DB;
-		$query = $DB->query("SELECT * FROM fmi_users WHERE email=\"$email\" AND password=\"$password\"", 'UserModel');
-		$user = $query->fetch();
+		$query = $DB->query("SELECT * FROM fmi_users WHERE email = :email AND password = :password", array(
+			':email' => $email,
+			':password' => $password),
+			'UserModel');
+
+		var_dump($query);
+		$user = $query->fetchAll();
 		if ($user) {
 			$_SESSION['user'] = $user;
 			header('Location: upload.php');

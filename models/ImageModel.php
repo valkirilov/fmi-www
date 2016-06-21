@@ -2,11 +2,12 @@
 
 require_once 'Model.php';
 
-class UserModel extends Model {
+class ImageModel extends Model {
 
 	public $id;
-	public $email;
-	public $password;
+	public $path;
+	public $width;
+	public $height;
 	public $created_at;
 	public $updated_at;
 }
