@@ -17,14 +17,18 @@ class Auth {
 
 		$password = md5($password);
 
-		global $DB;
-		$query = $DB->query("SELECT * FROM fmi_users WHERE email = :email AND password = :password", array(
-			':email' => $email,
-			':password' => $password),
-			'UserModel');
+		try {
+			global $DB;
+			$query = $DB->query("SELECT * FROM fmi_users WHERE email = :email AND password = :password", array(
+				':email' => $email,
+				':password' => $password),
+				'UserModel');
 
-		var_dump($query);
-		$user = $query->fetchAll();
+			$user = $query->fetchAll();
+		} catch(PDOException $e) {
+		  echo 'Error: ' . $e->getMessage();
+		}
+
 		if ($user) {
 			$_SESSION['user'] = $user;
 			header('Location: upload.php');

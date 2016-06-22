@@ -11,8 +11,11 @@ class UploadController extends Controller {
 
 	private $imagesModel;
 
+	public $context;
+
 	public function __construct() {
 		$this->imagesModel = new ImageModel();
+		$this->context = array();
 	}
 
 	public function uploadView() {
@@ -20,12 +23,23 @@ class UploadController extends Controller {
 			header('Location: login.php');
 			exit;
 		}
+
+		// Fetch all of the images from the DB
+		try {
+			global $DB;
+			$query = $DB->query("SELECT * FROM fmi_images;", array(), 'ImageModel');
+			$images = $query->fetchAll();
+
+			$this->context['images'] = $images;
+		} catch(PDOException $e) {
+		  echo 'Error: ' . $e->getMessage();
+		}
 	}
 
 	public function uploadAction() {
 
 		// Some config for the place where we want to upload the files
-		$uploadsDirectory = PATH_ROOT . "/uploads/";
+		$uploadsDirectory = PATH_ROOT . Uploader::getUploadDirectory();
 		$file = $uploadsDirectory . basename($_FILES["image"]["name"]);
 
 		// Validate the file

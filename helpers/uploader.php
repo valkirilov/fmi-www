@@ -48,7 +48,7 @@ class Uploader {
 	 */
 	public static function upload($file) {
 		if (move_uploaded_file($_FILES["image"]["tmp_name"], $file)) {
-      $_POST['message'] = "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+      $_POST['message'] = "The file ". basename($_FILES["image"]["name"]). " has been uploaded.";
       return self::store($file);
     } else {
       $_POST['message'] = "Sorry, there was an error uploading your file.";
@@ -56,13 +56,21 @@ class Uploader {
     }
 	}
 
+	/**
+	 * Store info about the image in the DB
+	 * @param  [type] $file [description]
+	 * @return [type]       [description]
+	 */
 	public static function store($file) {
   	try {
+
+  		$imageSize = getimagesize($file);
+
   		global $DB;
   		$result = $DB->query('INSERT INTO `fmi_images` (path, width, height, created_at) VALUES(:path, :width, :height, :created_at);', array(
-	    	':path' => $file,
-	    	':width' => 0,
-	    	':height' => 0,
+	    	':path' => self::getUploadDirectory() . basename($_FILES["image"]["name"]),
+	    	':width' => $imageSize[0],
+	    	':height' => $imageSize[1],
 	    	':created_at' => date("Y-m-d H:i:s", time())
 	  	));
 
@@ -71,7 +79,14 @@ class Uploader {
 			$_POST['message'] = $e->getMessage();
 	  	return false;
 		}
+	}
 
+	/**
+	 * Get the directory where the ploaded images are stored
+	 * @return [string]
+	 */
+	public static function getUploadDirectory() {
+		return "/uploads/";
 	}
 
 }
