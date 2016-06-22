@@ -1,17 +1,6 @@
 <?php
-if (file_exists(PATH_ROOT . '/helpers/local.php')) {
-  require_once 'local.php';
-} else {
-  trait Configs {
-      static $host = '127.0.0.1';
-		  static $database = 'fmi-www-local';
-		  static $user = 'root';
-		  static $password = 'password';
-  }
-}
-
+require_once PATH_ROOT . '/helpers/settings.php';
 class Database {
-  use Configs;
 
 	/**
 	 * PDO object
@@ -26,7 +15,7 @@ class Database {
 	public function connect() {
 
 		try {
-		  $this->pdo = new PDO('mysql:host='.self::$host.';dbname='.self::$database, self::$user, self::$password);
+		  $this->pdo = new PDO('mysql:host='.HOST.';dbname='.DATABASE, USER, PASSWORD);
 		  $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch(PDOException $e) {
 		  echo 'Error: ' . $e->getMessage();
