@@ -38,3 +38,14 @@
 	</table>
 	<div class="clearfix"></div>
 </div>
+
+<div class="generator">
+	<h3>Use the generator</h3>
+	<h4>Pick a category</h4>
+	<ul>
+		<?php	global $homepageController; ?>
+		<?php foreach ($homepageController->context['categories'] as $category) { ?>
+			<li><?php echo $category->name ?></li>
+		<?php }	?>
+	</ul>
+</div>

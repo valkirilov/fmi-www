@@ -1,3 +1,10 @@
+<?php
+
+require_once(PATH_ROOT . '/controllers/HomepageController.php');
+
+$homepageController = new HomepageController();
+$homepageController->homepageView();
+?>
 
 <div class="container">
 	<main>

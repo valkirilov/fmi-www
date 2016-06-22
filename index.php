@@ -5,6 +5,8 @@
   </head>
   <body>
 
+    <?php require_once('config.php'); ?>
+
     <?php require_once('views/layouts/header.php'); ?>
 
     <?php require_once('views/homepage/page.php'); ?>
