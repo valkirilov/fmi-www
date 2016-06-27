@@ -24,13 +24,13 @@ class Auth {
 				':password' => $password),
 				'UserModel');
 
-			$user = $query->fetchAll();
+			$user = $query->fetch();
 		} catch(PDOException $e) {
 		  echo 'Error: ' . $e->getMessage();
 		}
 
 		if ($user) {
-			$_SESSION['user'] = $user;
+			$_SESSION['user'] = serialize($user);
 			header('Location: upload.php');
 			exit;
 		}
@@ -55,5 +55,34 @@ class Auth {
 	 */
 	public static function isLogged() {
 		return isset($_SESSION['user']);
+	}
+
+	public static function register($email, $password) {
+	  $orgPassword = $password;
+	  $password = md5($password);
+
+	  try {
+	    global $DB;
+	    $query = $DB->query("SELECT * FROM fmi_users WHERE email = :email", array(
+	        ':email' => $email),
+	        'UserModel');
+
+	    $user = $query->fetchAll();
+	    if(!empty($user)) {
+	      $_POST['message'] = 'User already exist.';
+	      return false;
+	    }
+      $created_at = date("Y-m-d H:i:s");
+	    $sql = "INSERT INTO fmi_users (email, password, created_at, updated_at)
+	    VALUES ('$email', '$password', '$created_at', '$created_at')";
+
+	    $query = $DB->query($sql);
+	    self::login($email, $orgPassword);
+
+	  } catch(PDOException $e) {
+	    echo 'Error: ' . $e->getMessage();
+	    return false;
+	  }
+	  return true;
 	}
 }

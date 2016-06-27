@@ -19,6 +19,13 @@ class AuthController extends Controller {
 		}
 	}
 
+	public function registerView() {
+	  if (Auth::isLogged()) {
+	    header('Location: register.php');
+	    exit;
+	  }
+	}
+
 	public function loginAction() {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
@@ -28,6 +35,19 @@ class AuthController extends Controller {
 
 	public function logoutAction() {
 		Auth::logout();
+	}
+
+	public function registerAction() {
+	  $email = $_POST['email'];
+	  $password = $_POST['password'];
+	  $repeatPassword = $_POST['repeat-password'];
+	  if($password === $repeatPassword) {
+	    Auth::register($email, $password);
+	  }
+	  else {
+	    $_POST['message'] = 'Your password does\'t match';
+	  }
+
 	}
 
 }
