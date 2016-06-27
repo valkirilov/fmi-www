@@ -30,7 +30,11 @@ class UploadController extends Controller {
 			$query = $DB->query("SELECT * FROM fmi_images;", array(), 'ImageModel');
 			$images = $query->fetchAll();
 
+			$query = $DB->query("SELECT * FROM fmi_categories;", array(), 'CategoryModel');
+			$categories = $query->fetchAll();
+
 			$this->context['images'] = $images;
+			$this->context['categories'] = $categories;
 		} catch(PDOException $e) {
 		  echo 'Error: ' . $e->getMessage();
 		}

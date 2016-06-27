@@ -1,4 +1,4 @@
-
+<?php	global $uploadController; ?>
 <form action="upload.php" method="POST" enctype="multipart/form-data">
 	<?php if (isset($_POST['message'])) { ?>
 		<p class="alert <?php echo $_POST['status'] ? 'success' : 'error' ?>">
@@ -8,6 +8,12 @@
 
   Select image to upload:
   <input type="file" name="image">
+  Category:
+  <select id="category-id" name="category-id">
+    <?php foreach ($uploadController->context['categories'] as $category) { ?>
+    	<option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+    <?php }	?>
+  </select>
   <input type="submit" value="Upload Image" name="submit">
 </form>
 
@@ -25,7 +31,6 @@
 		<th>Preview</th>
 	</thead>
 	<tbody>
-		<?php	global $uploadController; ?>
 		<?php foreach ($uploadController->context['images'] as $image) { ?>
 			<tr>
 				<td><?php echo $image->id ?></td>

@@ -75,11 +75,30 @@ class Uploader {
   		  ':updated_at' => date("Y-m-d H:i:s", time())
 	  	));
 
+  		self::addCategory($DB->getLastInsertId());
+
 	  	return true;
 		} catch(PDOException $e) {
 			$_POST['message'] = $e->getMessage();
 	  	return false;
 		}
+	}
+
+	private static function addCategory($imageId) {
+	  $categoryId = $_POST['category-id'];
+	  global $DB;
+	  try {
+  	  $DB->query('INSERT INTO `fmi_category_image` (image_id, category_id, created_at, updated_at) VALUES(:image_id, :category_id, :created_at, :updated_at);', array(
+  	      ':image_id' => $imageId,
+  	      ':category_id' => $categoryId,
+  	      ':created_at' => date("Y-m-d H:i:s", time()),
+  	      ':updated_at' => date("Y-m-d H:i:s", time())
+  	  ));
+
+	  } catch(PDOException $e) {
+	    $_POST['message'] = $e->getMessage();
+	    return false;
+	  }
 	}
 
 	/**

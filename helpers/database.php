@@ -34,6 +34,10 @@ class Database {
   	return $query;
 	}
 
+	public function getLastInsertId() {
+	  return $this->pdo->lastInsertId();
+	}
+
 }
 
 
