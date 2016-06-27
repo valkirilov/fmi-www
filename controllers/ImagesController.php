@@ -60,7 +60,7 @@ class ImagesController extends Controller {
 	private function showImage($image, $filters) {
 		$file = PATH_ROOT . $image['path'];
 
-		$image = $this->resize_image(imagecreatefrompng($file), $filters['width'], $filters['height']);
+		$image = $this->resize_image(imagecreatefromstring(file_get_contents($file)), $filters['width'], $filters['height']);
 
 		ob_start ();
 
