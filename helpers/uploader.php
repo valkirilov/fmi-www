@@ -67,11 +67,12 @@ class Uploader {
   		$imageSize = getimagesize($file);
 
   		global $DB;
-  		$result = $DB->query('INSERT INTO `fmi_images` (path, width, height, created_at) VALUES(:path, :width, :height, :created_at);', array(
+  		$result = $DB->query('INSERT INTO `fmi_images` (path, width, height, created_at, updated_at) VALUES(:path, :width, :height, :created_at, :updated_at);', array(
 	    	':path' => self::getUploadDirectory() . basename($_FILES["image"]["name"]),
 	    	':width' => $imageSize[0],
 	    	':height' => $imageSize[1],
-	    	':created_at' => date("Y-m-d H:i:s", time())
+	    	':created_at' => date("Y-m-d H:i:s", time()),
+  		  ':updated_at' => date("Y-m-d H:i:s", time())
 	  	));
 
 	  	return true;
