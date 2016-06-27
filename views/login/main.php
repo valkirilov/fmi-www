@@ -9,6 +9,7 @@
 		<legend for="login-input-password">Password</legend>
 		<input type="password" name="password" id="login-input-password" class="form-control" placeholder="Your password">
 	</fieldset>
+	<a href="register.php">Register</a>
 
 	<?php if (isset($_POST['message'])) { ?>
 		<p><?php echo $_POST['message']; ?></p>
