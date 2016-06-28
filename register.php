@@ -11,7 +11,7 @@
 
     <?php require_once('views/register/page.php'); ?>
 
-    <?php require_once('views/register/footer.php'); ?>
+    <?php require_once('views/layouts/footer.php'); ?>
 
     <?php require_once('views/layouts/body-bottom.php'); ?>
   </body>
