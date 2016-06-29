@@ -46,11 +46,70 @@
 
 <div class="generator">
 	<h3>Use the generator</h3>
-	<h4>Pick a category</h4>
-	<ul>
-		<?php	global $homepageController; ?>
-		<?php foreach ($homepageController->context['categories'] as $category) { ?>
-			<li><?php echo $category->name ?></li>
-		<?php }	?>
-	</ul>
+	<h4>Pick an image</h4>
+
+	<fieldset>
+		<legend for="generator-image-width">Width</legend>
+		<input type="number" name="image_width" id="generator-image-width" class="form-control" placeholder="Image width">
+	</fieldset>
+
+	<fieldset>
+		<legend for="generator-image-height">Height</legend>
+		<input type="number" name="image_height" id="generator-image-height" class="form-control" placeholder="Image height">
+	</fieldset>
+
+	<fieldset>
+		<legend for="generator-image-category">Category</legend>
+	 	<select id="generator-image-category" name="image_category">
+	 		<option value="">Choose a category</option>
+	 		<?php	global $homepageController; ?>
+    	<?php foreach ($homepageController->context['categories'] as $category) { ?>
+    		<option value="<?php echo $category->slug; ?>"><?php echo $category->name; ?></option>
+    	<?php }	?>
+  	</select>
+	</fieldset>
+
+	<h3>Use this url:</h3>
+	<fieldset>
+		<input type="text" name="result" id="generator-image-result" class="form-control" placeholder="URL result" style="width: 100%;">
+	</fieldset>
+
+	<h4>Generate text</h4>
+
+	<fieldset>
+		<legend for="generator-text-paragraphs">Paragraphs Count</legend>
+		<input type="number" name="text_paragraphs" id="generator-text-paragraphs" class="form-control" placeholder="Text paragraphs">
+	</fieldset>
+
+	<fieldset>
+		<legend for="generator-text-paragraphs">Paragraphs Length</legend>
+		<label>
+			<input type="radio" name="text_length" class="generator-text-length" class="form-control" value="short">
+			Short
+		</label>
+
+		<label>
+			<input type="radio" name="text_length" class="generator-text-length" class="form-control" value="medium">
+			Medium
+		</label>
+
+		<label>
+			<input type="radio" name="text_length" class="generator-text-length" class="form-control" value="long">
+			Long
+		</label>
+
+		<label>
+			<input type="radio" name="text_length" class="generator-text-length" class="form-control" value="verylong">
+			Very Long
+		</label>
+	</fieldset>
+
+	<h3>Use this url:</h3>
+	<fieldset>
+		<input type="text" name="result" id="generator-text-result" class="form-control" placeholder="URL result" style="width: 100%;">
+	</fieldset>
+
 </div>
+
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="dist/scripts.min.js"></script>

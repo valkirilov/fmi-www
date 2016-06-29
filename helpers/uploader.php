@@ -67,7 +67,8 @@ class Uploader {
   		$imageSize = getimagesize($file);
 
   		global $DB;
-  		$result = $DB->query('INSERT INTO `fmi_images` (path, width, height, created_at, updated_at) VALUES(:path, :width, :height, :created_at, :updated_at);', array(
+  		$result = $DB->query('INSERT INTO `fmi_images` (path, width, height, created_at, updated_at)
+  			VALUES(:path, :width, :height, :created_at, :updated_at);', array(
 	    	':path' => self::getUploadDirectory() . basename($_FILES["image"]["name"]),
 	    	':width' => $imageSize[0],
 	    	':height' => $imageSize[1],
@@ -84,6 +85,10 @@ class Uploader {
 		}
 	}
 
+	/**
+	 * ѝшtach a specific category to a image by its id
+	 * @param [type] $imageId [description]
+	 */
 	private static function addCategory($imageId) {
 	  $categoryId = $_POST['category-id'];
 	  global $DB;
