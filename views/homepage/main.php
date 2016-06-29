@@ -11,29 +11,29 @@
 	<h3>Examples</h3>
 	<table>
 		<tr>
-			<td><a href="#">www.fmi-www.com/400/200</a></td>
+			<td><a href="i.php?w=400&h=200">www.fmi-www.com/i.php?w=400&amp;h=200</a></td>
 			<td>&nbsp; &nbsp; &nbsp;</td>
 			<td>to get a random picture of 400 x 200 pixels</td>
 		</tr>
-		<tr>
+		<!-- <tr>
 			<td><a href="#">www.fmi-www.com/c/400/200</a></td>
 			<td>&nbsp; &nbsp; &nbsp;</td>
 			<td>to get a random colorfull picture of 400 x 200 pixels</td>
-		</tr>
-		<tr>
+		</tr> -->
+		<!-- <tr>
 			<td><a href="#">www.fmi-www.com/g/400/200</a></td>
 			<td>&nbsp; &nbsp; &nbsp;</td>
 			<td>to get a random gray picture of 400 x 200 pixels</td>
-		</tr>
+		</tr> -->
 		<tr>
-			<td><a href="#">www.fmi-www.com/400/200/food</a></td>
+			<td><a href="i.php?w=400&h=200&c=food">www.fmi-www.com/i.php?w=400&amp;h=200&amp;c=food</a></td>
 			<td>&nbsp; &nbsp; &nbsp;</td>
 			<td>to get a random picture of the food category</td>
 		</tr>
 		<tr>
-			<td><a href="#">www.fmi-www.com/400/200/food/1</a></td>
+			<td><a href="i.php?w=400&h=200&c=food&n=1">www.fmi-www.com/i.php?w=400&amp;h=200&amp;c=food&amp;n=1</a></td>
 			<td>&nbsp; &nbsp; &nbsp;</td>
-			<td>to get a random picture of 400 x 200 pixels</td>
+			<td>to get a the same picture of 400 x 200 pixels from the food category</td>
 		</tr>
 	</table>
 	<div class="clearfix"></div>

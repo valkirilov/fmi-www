@@ -42,11 +42,22 @@ class ImagesController extends Controller {
 		if (isset($_GET['width'])) {
 			$filters['width'] = $_GET['width'];
 		}
+		if (isset($_GET['w'])) {
+			$filters['width'] = $_GET['w'];
+		}
+
 		if (isset($_GET['height'])) {
 			$filters['height'] = $_GET['height'];
 		}
+		if (isset($_GET['h'])) {
+			$filters['height'] = $_GET['h'];
+		}
+
 		if (isset($_GET['category'])) {
 			$filters['category'] = $_GET['category'];
+		}
+		if (isset($_GET['c'])) {
+			$filters['category'] = $_GET['c'];
 		}
 
 		return $filters;
