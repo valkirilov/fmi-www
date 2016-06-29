@@ -15,7 +15,9 @@ class ImageModel extends Model {
 		try {
 			global $DB;
 
-			$sql = 'SELECT * FROM fmi_images WHERE 1';
+			$sql = 'SELECT cat.*, imgs.* FROM fmi_category_image as img_cat
+			    JOIN fmi_images imgs ON imgs.id = img_cat.image_id
+			    JOIN fmi_categories cat ON cat.id = img_cat.category_id WHERE 1';
 			$params = [];
 
 			if (isset($filters['width'])) {
@@ -26,6 +28,11 @@ class ImageModel extends Model {
 			if (isset($filters['height'])) {
 				$sql .= ' AND height >= :height';
 				$params[':height'] = $filters['height'];
+			}
+
+			if (isset($filters['category'])) {
+			  $sql .= ' AND name = :name';
+			  $params[':name'] = $filters['category'];
 			}
 
 			$query = $DB->query($sql, $params, 'ImagesModel');
