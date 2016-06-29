@@ -27,13 +27,16 @@ class UploadController extends Controller {
 		// Fetch all of the images from the DB
 		try {
 			global $DB;
-			$query = $DB->query("SELECT * FROM fmi_images;", array(), 'ImageModel');
-			$images = $query->fetchAll();
+			$query = $DB->query("SELECT cat.*, imgs.* FROM fmi_category_image as img_cat
+			    JOIN fmi_images imgs ON imgs.id = img_cat.image_id
+			    JOIN fmi_categories cat ON cat.id = img_cat.category_id;");
+
+			$cateogy_images = $query->fetchAll();
 
 			$query = $DB->query("SELECT * FROM fmi_categories;", array(), 'CategoryModel');
 			$categories = $query->fetchAll();
 
-			$this->context['images'] = $images;
+			$this->context['cateogy_images'] = $cateogy_images;
 			$this->context['categories'] = $categories;
 		} catch(PDOException $e) {
 		  echo 'Error: ' . $e->getMessage();

@@ -26,18 +26,20 @@
 	<thead>
 		<th>#ID</th>
 		<th>Path</th>
+		<th>Category</th>
 		<th>Width</th>
 		<th>Height</th>
 		<th>Preview</th>
 	</thead>
 	<tbody>
-		<?php foreach ($uploadController->context['images'] as $image) { ?>
+		<?php foreach ($uploadController->context['cateogy_images'] as $image) { ?>
 			<tr>
-				<td><?php echo $image->id ?></td>
-				<td><a href="<?php echo $image->path; ?>" target="_blank"><?php echo $image->path ?></a></td>
-				<td><?php echo $image->width ?>px</td>
-				<td><?php echo $image->height ?>px</td>
-				<td><img src="<?php echo $image->path; ?>" width="120"></td>
+				<td><?php echo $image['id'] ?></td>
+				<td><a href="<?php echo $image['path']; ?>" target="_blank"><?php echo $image['path']; ?></a></td>
+				<td><?php echo $image['name']; ?></td>
+				<td><?php echo $image['width']; ?>px</td>
+				<td><?php echo $image['height']; ?>px</td>
+				<td><img src="<?php echo $image['path']; ?>" width="120"></td>
 			</tr>
 		<?php }	?>
 	</tbody>
